@@ -1,0 +1,60 @@
+.container-fluid {
+  padding-left: 25px;
+  padding-right: 25px;
+  gap: 20px;
+}
+.container--topselling {
+  padding-left: 20px;
+  padding-right: 20px;
+  height: fit-content;
+}
+.navbar-nav {
+  gap: 15px;
+  width: 100%;
+}
+.ms-md-auto {
+  margin-left: auto !important;
+  gap: 15px;
+}
+.navbar img {
+  width: 100px;
+  height: 100px;
+}
+.carousel-item .promo {
+  width: 500px;
+  height: 500px;
+  object-fit: contain;
+}
+
+.container--carousel {
+  /* background-color: #e9ebed;*/
+  width: fit-content;
+  height: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+.row-topSellHeader {
+  display: flex;
+  justify-content: center;
+}
+.row-topSellItem {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.row-topSellPageSelect {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+.card-img-top img {
+  object-fit: contain;
+  height: 200px;
+  width: 200px;
+}
+.card-footer i {
+  margin-right: 5px;
+}
