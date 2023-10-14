@@ -15,8 +15,10 @@
   position: relative;
 }
 .container-header {
+  margin-top: 20px;
   width: 80%;
   margin-bottom: 30px;
+  height: 20vh;
 }
 .header-img {
   width: 100%;
@@ -159,7 +161,7 @@ body {
 }
 
 .shadowBorder {
-  padding: 10px;
+  padding: 20px;
   margin: 5px;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
     rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
@@ -263,4 +265,25 @@ body {
 
 .button-remove:hover {
   box-shadow: #121212 0 0 0 3px, transparent 0 0 0 0;
+}
+
+[type=radio] { 
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+[type=radio] + img {
+  cursor: pointer;
+}
+
+[type=radio]:checked + img {
+  outline: 2px solid black;
+}
+.paymentImg{
+  margin-bottom: 20px;
+  object-fit: contain;
+  width: 200px;
+  
 }
