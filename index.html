@@ -391,20 +391,23 @@
         </button>
       </div>
     </div>
-    <div class="modal hidden">
+    <div class="dealsmodal d-none">
       <button class="close-modal">&times;</button>
-      <h1>I'm a modal window 😍</h1>
+      <h1>Special Offer<i class="fa-solid fa-gift m-1"></i></h1>
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-        occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-        mollit anim id est laborum.
+        Get 15% off your purchase with the code
+        <button
+          title="Copy promo code"
+          id="copy"
+          class="discountCode"
+          onClick="CopyToClipboard('to-copy')"
+        >
+          <div id="to-copy">SPECIAL15</div>
+          <span class="copiedtext" aria-hidden="true">Copied</span></button
+        >. Valid for 7 days only. Don't miss out on this chance to save big!
       </p>
     </div>
-    <div class="overlay hidden"></div>
+    <div class="overlay d-none"></div>
     <script src="script.js"></script>
     <script
       src="https://kit.fontawesome.com/b8a1948b36.js"

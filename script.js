@@ -8,7 +8,7 @@ const refreshPriceItem_2 = function () {
   price_radio_2 = document.querySelector('input[name="price-cart"]:checked');
   pricePerItem_2.innerHTML = "$" + price_radio_2.value * qty_item_2.value;
 };
-const refreshTotalPrice = function () {
+const refreshTotalPrice = function (discount) {
   let checkItem1 = document.querySelector(".cartItem1");
   let checkItem2 = document.querySelector(".cartItem2");
   if (!checkItem1.classList.contains("d-none")) {
@@ -22,23 +22,48 @@ const refreshTotalPrice = function () {
     priceItem2 = 0;
   }
 
-  sumPrice = priceItem1 + priceItem2;
+  sumPrice = (priceItem1 + priceItem2) * (100-discount)/100;
   totalPrice.innerHTML = "$" + sumPrice;
 };
 const openModal = function () {
   console.log("Opening modal");
-  modal.classList.remove("hidden");
-  overlay.classList.remove("hidden");
+  modal.classList.remove("d-none");
+  overlay.classList.remove("d-none");
 };
 const closeModal = function () {
-  modal.classList.add("hidden");
-  overlay.classList.add("hidden");
+  modal.classList.add("d-none");
+  overlay.classList.add("d-none");
 };
-
+function CopyToClipboard (containerid) {
+  let btnCopy = document.getElementById( "copy" );
+  let main = document.getElementById( "maincontent" );
+  let textarea = document.createElement("textarea");
+  textarea.id = "temp_element";
+  textarea.style.height = 0;
+  document.body.appendChild(textarea);
+  textarea.value = document.getElementById(containerid).innerText;
+  let selector = document.querySelector("#temp_element");
+  selector.select();
+  document.execCommand("copy");
+  document.body.removeChild(textarea); 
+  if ( document.execCommand( "copy" ) ) {
+      btnCopy.classList.add( "copied" );
+    
+      let temp = setInterval( function(){
+        btnCopy.classList.remove( "copied" );
+        clearInterval(temp);
+      }, 600 );
+    
+  } else {
+    console.info( "document.execCommand went wrong…" );
+  }
+    
+}
+const codeSubmit = document.querySelector(".codeSubmit");
+const codeInput =document.querySelector(".codeInput");
 const btnCloseModal = document.querySelector(".close-modal");
-const modal = document.querySelector(".modal");
+const modal = document.querySelector(".dealsmodal");
 const overlay = document.querySelector(".overlay");
-
 const totalPrice = document.querySelector(".totalPrice");
 const btnRemove = document.querySelectorAll(".button-remove");
 const priceRadios = document.querySelectorAll(".price_radio");
@@ -55,12 +80,40 @@ let price_radio = document.querySelector('input[name="price-base"]:checked');
 let price_radio_2 = document.querySelector('input[name="price-cart"]:checked');
 let sum_quantity, priceItem1, priceItem2, sumPrice;
 const btnOpenModal = document.querySelector(".openModal");
-btnOpenModal.addEventListener("click", openModal);
+if(codeSubmit){
+  codeSubmit.addEventListener("click",function(){
+    
+    if(codeInput.value =="SPECIAL15"){
 
-btnCloseModal.addEventListener("click", closeModal);
-overlay.addEventListener("click", closeModal);
+      refreshTotalPrice(15);
+      Swal.fire(
+        'Promotion Code Applied!',
+        'You got discount 15%!',
+        'success'
+      )
+    }else{
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Wrong promotion code',
+        footer: 'Please check the promo code at deals menu'
+      })
+    }
+  })
+}
+if(btnOpenModal){
+  btnOpenModal.addEventListener("click", openModal);
+}
+
+if(btnCloseModal){
+  btnCloseModal.addEventListener("click", closeModal);
+}
+if(overlay){
+  overlay.addEventListener("click", closeModal);
+}
+
 document.addEventListener("keydown", function (e) {
-  if (e.key === "Escape" && !modal.classList.contains("hidden")) {
+  if (e.key === "Escape" && !modal.classList.contains("d-none")) {
     closeModal();
   }
 });
@@ -68,43 +121,47 @@ btnplus.addEventListener("click", function () {
   sum_quantity = Number(input.value) + 1;
   input.value = sum_quantity;
   refreshPriceItem();
-  refreshTotalPrice();
+  refreshTotalPrice(0);
 });
 btnminus.addEventListener("click", function () {
   if (Number(input.value) - 1 > 0) {
     sum_quantity = Number(input.value) - 1;
     input.value = sum_quantity;
     refreshPriceItem();
-    refreshTotalPrice();
+    refreshTotalPrice(0);
   }
 });
 qtyplus_item_2.addEventListener("click", function () {
   sum_quantity = Number(qty_item_2.value) + 1;
   qty_item_2.value = sum_quantity;
   refreshPriceItem();
-  refreshTotalPrice();
+  refreshTotalPrice(0);
 });
 qtyminus_item_2.addEventListener("click", function () {
   if (Number(qty_item_2.value) - 1 > 0) {
     sum_quantity = Number(qty_item_2.value) - 1;
     qty_item_2.value = sum_quantity;
     refreshPriceItem();
-    refreshTotalPrice();
+    refreshTotalPrice(0);
   }
 });
 priceRadios.forEach((radio) => {
   radio.addEventListener("click", refreshPriceItem);
 });
 priceRadios.forEach((radio) => {
-  radio.addEventListener("click", refreshTotalPrice);
+  radio.addEventListener("click", function(){
+    refreshTotalPrice(0);
+  });
 });
 
 btnRemove.forEach((button) => {
   button.addEventListener("click", function (event) {
     const row = event.target.closest(".row");
     row.classList.add("d-none");
-    refreshTotalPrice();
+    refreshTotalPrice(0);
   });
 });
 refreshPriceItem();
-refreshTotalPrice();
+refreshTotalPrice(0);
+
+

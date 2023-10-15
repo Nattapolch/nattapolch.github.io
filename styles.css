@@ -235,7 +235,9 @@ body {
     rgba(243, 134, 10, 0.25) 0 16px 32px;
   transform: scale(1.05) rotate(-1deg);
 }
-
+.qty_item_2{
+  text-align: center;
+}
 .button-remove {
   align-items: center;
   background-color: #fff;
@@ -290,7 +292,7 @@ body {
 .hidden {
   display: none;
 }
-.modal {
+.dealsmodal {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -323,4 +325,39 @@ body {
   cursor: pointer;
   border: none;
   background: none;
+}
+
+
+
+
+.copiedtext {
+  position: absolute;
+  left: 0; top: 0; right: 0;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(-1em);
+  color: #000;
+  transition: all .500s;
+}
+.copied .copiedtext {
+  opacity: 1;
+  transform: translateY(-4em);
+}
+.discountCode {
+  position: relative;
+  padding: 8px 10px;
+  border: 2px dotted black;
+  font-size: 0.835em;
+  text-transform: uppercase;
+  letter-spacing: 0.125em;
+  font-weight: bold;
+  color: #000;
+  background: #fff;
+  transition: background .275s;
+}
+.discountCode:hover,
+.discountCode:focus {
+  background: #EA2237;
+  color: #fff;
+  cursor: pointer;
 }
