@@ -39,7 +39,7 @@
               <a class="nav-link" href="#">What's New</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Deals</a>
+              <a class="nav-link openModal" href="#">Deals</a>
             </li>
             <li class="nav-item dropdown">
               <a
@@ -86,6 +86,7 @@
         </div>
       </div>
     </nav>
+
     <div class="container-header mx-auto">
       <div class="row-header d-flex justify-content-center">
         <div class="col-8">
@@ -230,56 +231,108 @@
             </div>
             <div class="carousel-item">
               <div class="row row-cols-1 row-cols-md-3 g-4">
-                <div class="col">
-                  <div class="card h-50 w-75">
-                    <img src="..." class="card-img-top" alt="..." />
+                <div class="col col-lg-4 topSellItem">
+                  <div class="card h-50 w-75 mx-auto">
+                    <img
+                      src="images/checkout-product1.webp"
+                      class="card-img-top"
+                      alt="product4"
+                    />
                     <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
+                      <h5 class="card-title">Gaming gift card $50</h5>
                       <p class="card-text">
-                        This is a wider card with supporting text below as a
-                        natural lead-in to additional content. This content is a
-                        little bit longer.
+                        Gift Cards can be redeemed on game for the purchase of
+                        games, software, and any other item.
                       </p>
                     </div>
                     <div class="card-footer">
                       <small class="text-body-secondary"
-                        >Last updated 3 mins ago</small
+                        ><a
+                          href="#"
+                          class="btn btn-sm"
+                          role="button"
+                          data-bs-toggle="button"
+                          ><i class="fa-regular fa-heart"></i>Favourite
+                        </a>
+
+                        <a
+                          href="#"
+                          class="btn btn-primary btn-sm"
+                          role="button"
+                          data-bs-toggle="button"
+                          ><i class="fa-solid fa-cart-plus"></i>Add to Cart
+                        </a></small
                       >
                     </div>
                   </div>
                 </div>
-                <div class="col">
-                  <div class="card h-50 w-75">
-                    <img src="..." class="card-img-top" alt="..." />
+                <div class="col col-lg-4 topSellItem">
+                  <div class="card h-50 w-75 mx-auto">
+                    <img
+                      src="images/checkout-product2.webp"
+                      class="card-img-top"
+                      alt="product5"
+                    />
                     <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
+                      <h5 class="card-title">Music gift card $10</h5>
                       <p class="card-text">
-                        This card has supporting text below as a natural lead-in
-                        to additional content.
+                        Give a gift card for a true music lover. Help them
+                        discover new artists, wihtout any ads. Find out more and
+                        buy the gift card here.
                       </p>
                     </div>
                     <div class="card-footer">
                       <small class="text-body-secondary"
-                        >Last updated 3 mins ago</small
+                        ><a
+                          href="#"
+                          class="btn btn-sm"
+                          role="button"
+                          data-bs-toggle="button"
+                          ><i class="fa-regular fa-heart"></i>Favourite
+                        </a>
+
+                        <a
+                          href="#"
+                          class="btn btn-primary btn-sm"
+                          role="button"
+                          data-bs-toggle="button"
+                          ><i class="fa-solid fa-cart-plus"></i>Add to Cart
+                        </a></small
                       >
                     </div>
                   </div>
                 </div>
-                <div class="col">
-                  <div class="card h-50 w-75">
-                    <img src="..." class="card-img-top" alt="..." />
+                <div class="col col-lg-4 topSellItem">
+                  <div class="card h-50 w-75 mx-auto">
+                    <img
+                      src="images/product-6.webp"
+                      class="card-img-top"
+                      alt="product6"
+                    />
                     <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
+                      <h5 class="card-title">Crypto voucher card $100</h5>
                       <p class="card-text">
-                        This is a wider card with supporting text below as a
-                        natural lead-in to additional content. This card has
-                        even longer content than the first to show that equal
-                        height action.
+                        This crypto voucher that enables your business to
+                        transfer crypto outside of exchange platform
                       </p>
                     </div>
                     <div class="card-footer">
                       <small class="text-body-secondary"
-                        >Last updated 3 mins ago</small
+                        ><a
+                          href="#"
+                          class="btn btn-sm"
+                          role="button"
+                          data-bs-toggle="button"
+                          ><i class="fa-regular fa-heart"></i>Favourite
+                        </a>
+
+                        <a
+                          href="#"
+                          class="btn btn-primary btn-sm"
+                          role="button"
+                          data-bs-toggle="button"
+                          ><i class="fa-solid fa-cart-plus"></i>Add to Cart
+                        </a></small
                       >
                     </div>
                   </div>
@@ -338,6 +391,20 @@
         </button>
       </div>
     </div>
+    <div class="modal hidden">
+      <button class="close-modal">&times;</button>
+      <h1>I'm a modal window 😍</h1>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+        occaecat cupidatat non proident, sunt in culpa qui officia deserunt
+        mollit anim id est laborum.
+      </p>
+    </div>
+    <div class="overlay hidden"></div>
     <script src="script.js"></script>
     <script
       src="https://kit.fontawesome.com/b8a1948b36.js"
