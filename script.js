@@ -59,6 +59,20 @@ function CopyToClipboard (containerid) {
   }
     
 }
+btnCheckout.addEventListener("click", function() {
+  let checked = false;
+  for (let i = 0; i < radiopaymentchoice.length; i++) {
+    if (radiopaymentchoice[i].checked) {
+      checked = true;
+      break;
+    }
+  }
+  if (!checked) {
+    alert("Please select a radio button.");
+  }
+});
+const btnCheckout = document.getElementById("btnCheckOut");
+const radiopaymentchoice = document.getElementsByName("paymentchoice");
 const codeSubmit = document.querySelector(".codeSubmit");
 const codeInput =document.querySelector(".codeInput");
 const btnCloseModal = document.querySelector(".close-modal");

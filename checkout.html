@@ -40,7 +40,7 @@
               <a class="nav-link" href="#">What's New</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Deals</a>
+              <a class="nav-link openModal" href="#">Deals</a>
             </li>
             <li class="nav-item dropdown">
               <a
@@ -78,7 +78,7 @@
                 ></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#"
+                <a class="nav-link" href="/checkout.html"
                   >Carts <i class="fa-solid fa-cart-shopping"></i
                 ></a>
               </li>
@@ -253,10 +253,10 @@
                 id="promocode"
                 name="promocode"
                 placeholder="Promotion code"
-                class="codeInput"
+                class="codeInput mx-auto"
               /></div>
               <div class="col-6 d-flex justify-content-center">
-                <button type="submit" class="button-submit codeSubmit">Apply</button></div>
+                <button type="submit" class="button-submit codeSubmit mx-auto">Apply</button></div>
               
             </div>
           </div>
@@ -267,24 +267,34 @@
                 <label
                   ><input
                     type="radio"
-                    name="paypal"
+                    name="paymentchoice"
                     value="paypal"
-                    checked /><img
+                    id="radio-paypal"
+                    form ="checkOutForm"
+                    
+                    required /><img
                     src="images/paypal.png"
                     alt=""
-                    class="paymentImg mx-auto"
+                    class="paymentImg"
+                    
+                    
                 /></label>
               </div>
               <div class="col-6">
                 <label
                   ><input
                     type="radio"
-                    name="paypal"
-                    value="paypal"
-                    checked /><img
+                    name="paymentchoice"
+                    value="debitCredit"
+                    form ="checkOutForm"
+                    id="radio-credit"
+                    required
+                     /><img
                     src="images/debit-credit.jpg"
                     alt=""
                     class="paymentImg"
+                    
+                    
                 /></label>
               </div>
             </div>
@@ -294,14 +304,15 @@
           <div class="shadowBorder">
             <h2>Shiping details</h2>
             <p>Entering your shiping information for finalize your order</p>
-            <form class="row g-3">
+            <form action="" method="get" class="row g-3" id="checkOutForm">
+             
               <div class="col-md-6 mb-3">
                 <label for="InputName" class="form-label">Name</label>
-                <input type="text" class="form-control" id="InputName" />
+                <input type="text" name="name" class="form-control" id="InputName" required/>
               </div>
               <div class="col-md-6 mb-3">
                 <label for="InputLastName" class="form-label">Last Name</label>
-                <input type="text" class="form-control" id="InputLastName" />
+                <input type="text" name="lastName" class="form-control" id="InputLastName" required />
               </div>
 
               <div class="col-md-12 mb-3 input-group">
@@ -607,7 +618,7 @@
                       <option value="263">Zimbabwe +263</option>
                     </select>
                   </div>
-                  <input type="number" class="form-control" id="phoneNumber" />
+                  <input type="number" name="phoneNumber" class="form-control" id="phoneNumber" required/>
                 </div>
               </div>
               <div class="col-md-12 mb-3">
@@ -619,6 +630,8 @@
                     placeholder="Username"
                     aria-label="Username"
                     id="email"
+                    name="emailUserName"
+                    required
                   />
                   <span class="input-group-text">@</span>
                   <input
@@ -626,13 +639,15 @@
                     class="form-control"
                     placeholder="email.com"
                     aria-label="Server"
+                    name="emailDomainName"
+                    required
                   />
                 </div>
               </div>
 
               <div class="col-md-4 mb-3">
                 <label for="country" class="form-label">Country</label>
-                <select class="form-select" id="inputGroupSelect01">
+                <select class="form-select" id="inputGroupSelect01" name="country" required>
                   <option selected>Choose Country</option>
                   <option value="Afghanistan">Afghanistan</option>
                   <option value="Armenia">Armenia</option>
@@ -716,11 +731,13 @@
                   type="text"
                   class="form-control"
                   id="province-dist-subDist"
+                  name="province"
+                  required
                 />
               </div>
               <div class="col-md-2 mb-3">
                 <label for="postcode" class="form-label">Postcode</label
-                ><input type="number" class="form-control" id="postcode" />
+                ><input type="number" class="form-control" id="postcode" name="postCode" required/>
               </div>
               <div class="col-md-12 mb-3">
                 <label for="addressDetail" class="form-label"
@@ -729,6 +746,7 @@
                   class="form-control"
                   aria-label="With textarea"
                   id="addressDetail"
+                  name="addressDetail"
                 ></textarea>
               </div>
               <div class="mb-1 form-check">
@@ -736,19 +754,37 @@
                   type="checkbox"
                   class="form-check-input"
                   id="exampleCheck1"
+                  name="defaultSetting"
                 />
                 <label class="form-check-label" for="exampleCheck1"
                   >Set as default</label
                 >
               </div>
               <div class="col-md-3">
-                <button type="submit" class="button-submit">Submit</button>
+                <button type="submit" class="button-submit" id="btnCheckOut">Check Out</button>
               </div>
             </form>
           </div>
         </div>
       </div>
     </div>
+    <div class="dealsmodal d-none">
+      <button class="close-modal">&times;</button>
+      <h1>Special Offer<i class="fa-solid fa-gift m-1"></i></h1>
+      <p>
+        Get 15% off your purchase with the code
+        <button
+          title="Copy promo code"
+          id="copy"
+          class="discountCode"
+          onClick="CopyToClipboard('to-copy')"
+        >
+          <div id="to-copy">SPECIAL15</div>
+          <span class="copiedtext" aria-hidden="true">Copied</span></button
+        >. Valid for 7 days only. Don't miss out on this chance to save big!
+      </p>
+    </div>
+    <div class="overlay d-none"></div>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="script.js"></script>
     <script
